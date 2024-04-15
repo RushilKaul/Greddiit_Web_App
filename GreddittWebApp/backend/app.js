@@ -4,7 +4,13 @@ const mongoose=require('mongoose')
 
 const connectdatabase = require('./connectdb.js');
 
-connectdatabase()
+// connectdatabase()
+mongoose
+.connect('mongodb+srv://admin:CDNp4b8YoN7bUhRb@cluster0.2bdbi31.mongodb.net/Greddit?retryWrites=true&w=majority')
+.then(()=> console.log("Connected to database"))
+.then(()=>{
+    app.listen(process.env.PORT || 5000)
+}).catch((err)=>console.log(err));
 
 const app=express()
 
